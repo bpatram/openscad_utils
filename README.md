@@ -6,7 +6,7 @@ This is yet another generic OpenSCAD library to help with creating meshes/object
 
 This project is broken down into a few individual files, all of which can be used independently. You can simply download the scad file(s) that you need for your project and include it via `use`. Below lists each file and the modules/functions it contains.
 
-### Cloners
+### Cloners (cloners.scad)
 
 Most of the functionality in these functions mimics the cloner functionality found in Cinema4D.
 
@@ -100,6 +100,8 @@ TODO
 
 #### Vertex Cloner (vertex_cloner)
 
+Clone children elements at defined coordinates in 3d space. When using this module, you can access the `$i` global variable which you can use to modify each clone object.
+
 ##### Parameters
 
 |Parameter name|Description|Default value|
@@ -112,7 +114,7 @@ TODO
 
 TODO
 
-### Random
+### Random (random.scad)
 
 Various functions to generate random numbers, vectors, and matrices.
 
