@@ -44,7 +44,7 @@ translate([0, -2, 0]) linear_extrude(height = .1) text("example 1", size = .8);
 
 [View source for other examples](examples/grid_array_cloner.scad)
 
-#### Radial Cloner
+#### Radial Cloner (radial_cloner)
 
 Clones children objects along a circle. When using this module, you can access the `$i` global variable which you can use to modify each clone object (see example #2 shown below).
 
@@ -81,9 +81,36 @@ translate([0, -2, 0]) linear_extrude(height = .1) text("example 1", size = .8);
 
 [View source for other examples](examples/radial_cloner.scad)
 
-#### Linear Cloner
+#### Linear Cloner (linear_cloner)
 
-#### Vertex Cloner
+Similar to the grid array cloner except this only works in one direction. When using this module, you can access the `$i` global variable which you can use to modify each clone object.
+
+##### Parameters
+
+|Parameter name|Description|Default value|
+|---|---|---|
+|`count`|Number of clones|`1`
+|`size`|Distance between each clone|`[0, 0, 1]`
+|`clones`|Either `"iterate"` or `"random"`. Controls how children will be cloned when using multiple children|`"iterate"`
+|`seed`|Seed value used for random child selection (when using `"random"` clones mode)|`123456`
+
+##### Examples
+
+TODO
+
+#### Vertex Cloner (vertex_cloner)
+
+##### Parameters
+
+|Parameter name|Description|Default value|
+|---|---|---|
+|`points`|Array of coordinates in space to clone children on to|`[]`
+|`clones`|Either `"iterate"` or `"random"`. Controls how children will be cloned when using multiple children|`"iterate"`
+|`seed`|Seed value used for random child selection (when using `"random"` clones mode)|`123456`
+
+##### Examples
+
+TODO
 
 ### Random
 
@@ -91,4 +118,24 @@ Various functions to generate random numbers, vectors, and matrices.
 
 #### Random Double (rand_double)
 
+Returns a double between two numbers (inclusive).
+
+##### Parameters
+
+|Parameter name|Description|Default value|
+|---|---|---|
+|`low`|Min value|`1=0`
+|`high`|Max value|`1`
+|`seed`|Seed value used for random number generation|`123456`
+
 #### Random Color (rand_color)
+
+Returns an array of RGBA values that can be passed to `color()`. When defining contraints you will want to stay within [0,1] since values are defined as a floating point number.
+
+##### Parameters
+
+|Parameter name|Description|Default value|
+|---|---|---|
+|`constrain`|Define min and max values for each color channel. The first element defines min values for RGB respectively. The second element defined max values for RGB respectively.|`[[0,0,0], [1,1,1]]`
+|`alpha`|Define the alpha value of the color. This is not randomly defined.|`1`
+|`seed`|Seed value used for random child selection (when using `"random"` clones mode)|`123456`
