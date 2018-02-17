@@ -1,10 +1,6 @@
 use <../cloners.scad>
 use <../random.scad>
 
-$vpr = [57, 5, 9];
-$vpt = [11, 5, 0];
-$vpd = 24;
-
 // example 1
 grid_array_cloner(size = [2, 2, 2], count = [3, 3, 3], clones = "random") {
     color("Red") sphere(r = .5, center = true);
