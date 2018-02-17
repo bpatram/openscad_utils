@@ -124,9 +124,17 @@ Returns a double between two numbers (inclusive).
 
 |Parameter name|Description|Default value|
 |---|---|---|
-|`low`|Min value|`1=0`
+|`low`|Min value|`0`
 |`high`|Max value|`1`
 |`seed`|Seed value used for random number generation|`123456`
+
+##### Examples
+
+```openscad
+use <../random.scad>
+
+translate([rand_double() * 2, rand_double(0, 2), 0]) sphere(size = [2, 2], center = true)
+```
 
 #### Random Color (rand_color)
 
@@ -136,6 +144,16 @@ Returns an array of RGBA values that can be passed to `color()`. When defining c
 
 |Parameter name|Description|Default value|
 |---|---|---|
-|`constrain`|Define min and max values for each color channel. The first element defines min values for RGB respectively. The second element defined max values for RGB respectively.|`[[0,0,0], [1,1,1]]`
+|`constrain`|Define min and max values for each color channel. The first element defines min values for RGB respectively. The second element defines max values for RGB respectively.|`[[0,0,0], [1,1,1]]`
 |`alpha`|Define the alpha value of the color. This is not randomly defined.|`1`
-|`seed`|Seed value used for random child selection (when using `"random"` clones mode)|`123456`
+|`seed`|Seed value used for random number generation|`123456`
+
+##### Examples
+
+```openscad
+use <../random.scad>
+
+color(rand_color()) sphere(size = [2,2], center = true);
+
+color(rand_color(constrain = [[.5, .5, .5], [1, 1, 1]])) sphere(size = [2, 2], center = true);
+```
